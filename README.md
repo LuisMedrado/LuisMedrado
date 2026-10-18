@@ -14,12 +14,6 @@ Most of what I build ends up as a backend in Python and a client in React Native
 
 It started because I wanted to send e-books to my Kindle over Wi-Fi. It's now the place where I practice infrastructure on hardware I'm responsible for.
 
-- **Remote access without opening ports.** Every device joins a Tailscale tailnet, and the router forwards nothing. The Kindle is the one exception: Calibre-Web is published through Tailscale Funnel so it can pull books over OPDS.
-- **One reverse proxy, config next to each stack.** Traefik reads Docker labels, so routing lives in the same Compose file as the service. I had to move from v3.2 to v3.6 when Docker Engine 29 changed its API version.
-- **One stack per service.** Each app has its own Compose file, so adding or removing a service never touches the others. Homepage sits on top as the dashboard.
-- **Waking it up from anywhere.** Tailscale works at layer 3 and can't carry a Wake-on-LAN broadcast, so an ESP32 on the LAN receives the remote trigger and sends the magic packet locally.
-- **Backups on a separate disk.** borgbackup snapshots the container data and the book library to a USB drive.
-
 <br>
 
 ### Things I'm building
@@ -44,15 +38,7 @@ A cross-platform desktop app built on Tauri v2: React and TypeScript for the int
 
 <br>
 
-<img src="assets/cheaper.png" alt="Cheaper: mobile price tracker. React Native and Expo app calls a FastAPI API, which scrapes e-commerce sites on the server." width="100%" />
-
-#### Cheaper
-
-**A price tracker that keeps the phone out of the scraping.**
-
-React Native and Expo on the client. All e-commerce scraping happens in a FastAPI service, so a site changing its HTML means one server deploy and no app update.
-
-> These three are private while I get them ready to launch. Happy to walk through the code in an interview.
+> Both are private while I get them ready to launch. Happy to walk through the code if you ask about it.
 
 <br>
 
@@ -61,8 +47,8 @@ React Native and Expo on the client. All e-commerce scraping happens in a FastAP
 **IT Intern** · Fundação Viva de Previdência · Brasília · *current*
 
 - Automated a monthly brand-mentions report end to end: collecting mentions, processing them, updating a dashboard and emailing the report. Together with a daily bank-statement automation, it saves the team about 190 hours a year.
-- Write PostgreSQL persistence layers and reporting queries on a low-code platform: soft deletes, append-only history tables, cross-schema joins and optional-filter patterns.
-- Designing an internal helpdesk for the procurement team to track active, upcoming and expired contracts.
+- Write SQL Server persistence layers and reporting queries: soft deletes, append-only history tables, cross-schema joins and optional-filter patterns.
+- Developing an internal hub for the whole team to track and organize everything they need day by day.
 
 ### Education
 
@@ -76,7 +62,7 @@ React Native and Expo on the client. All e-commerce scraping happens in a FastAP
 |---|---|
 | **Infra** | Linux · Docker / Compose · Traefik · Tailscale · OpenMediaVault · GitHub Actions |
 | **Backend** | Python · FastAPI · PostgreSQL · SQL |
-| **Clients** | React Native · Expo · React · TypeScript · Kotlin / Jetpack Compose · Tauri / Rust |
+| **Clients** | React Native · React · TypeScript · Kotlin / Jetpack Compose · Tauri / Rust |
 | **Learning** | AWS · Terraform · CI/CD pipelines |
 
 <br>
@@ -86,4 +72,5 @@ React Native and Expo on the client. All e-commerce scraping happens in a FastAP
   <a href="mailto:medrado0100@gmail.com"><img src="https://img.shields.io/badge/Email-medrado0100%40gmail.com-161A1E?style=flat-square&logo=gmail&logoColor=white" alt="Email: medrado0100@gmail.com" /></a>
 </p>
 
-**Looking for a junior DevOps, cloud or backend role.** If your team runs its own infrastructure, I'd like to talk.
+**Looking for a junior DevOps, cloud or backend role.** <br>
+If your team runs its own infrastructure, I'd like to talk.
